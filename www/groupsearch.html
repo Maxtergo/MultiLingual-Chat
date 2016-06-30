@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="css/font-awesome.css" media="screen">
+    <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+    <title>Add to group</title>
+</head>
+
+<body>    
+    
+                
+                
+                <div id="chat" class="panel">
+                    <div class="panel-heading">
+                        <i class="fa fa-users"></i> Add to group
+                        <div class="tabs-but">
+                            <button class="tabs-button"><a href="groups.html"><i class="fa fa-users"></i> Groups</a></button> <button class="tabs-button"><i class="fa fa-search-plus"></i> Search Groups</button>
+                        </div>
+                        
+                        <div class="btn-group pull-right">
+                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-chevron-down"></span>
+                            </button>
+                            <ul class="dropdown-menu slidedown">
+                                <li id="email"></li>
+                                <li><a href="creategroup.html"><span class="glyphicon glyphicon-refresh">
+                                </span>Create Group</a></li>
+                                <li><a onclick="signout()"><span class="glyphicon glyphicon-off"></span>
+                                    Sign Out</a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <ul id="groups" class="chat">
+                            
+                        </ul>
+                    </div>
+                </div>
+    
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script>
+       groupsInit();
+       groupsInsert(1);
+    </script>
+</body>
+
+</html>
